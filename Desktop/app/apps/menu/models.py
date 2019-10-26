@@ -1,18 +1,22 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class proveedorRecompensa(models.Model):
     id = models.IntegerField(primary_key = True,null = False)
-    activo = models.BooleanField(null= False, blank= False)
     nombre = models.CharField(max_length=20)
     Logo = models.ImageField(default='default.png')
 
 class recompensa(models.Model):
-    codigo = models.IntegerField(primary_key=True)
+    idproveedor = models.ForeignKey(proveedorRecompensa , on_delete = models.DO_NOTHING)
+    idrecompensa = models.IntegerField(primary_key= True, null=False, default=0)
     descripcion = models.CharField(max_length=17)
-    expiracion = models.DateField()
+    expiracion = models.DateField(null= True)
+    activo = models.BooleanField(null= False, blank= False, default=False)
 
 class noticias(models.Model):
     codigoNoticia = models.IntegerField(primary_key= True, blank = True, null = False )
-    descripcion = models.CharField(max_length=30)
+    titulo = models.CharField(max_length = 40, null = False, default ='Missing')
+    fecha = models.DateField(default=datetime.date.today)
+    descripcion = models.CharField(max_length=70)
     Imagen = models.ImageField(default='default.png')

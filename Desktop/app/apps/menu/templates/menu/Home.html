@@ -1,68 +1,52 @@
 
     {% extends 'menu/Header_Footer.html' %}
     {% block contenido %}
+    {% load static %}     
         <div class="slider">
-                <ul class="slides">
-                  <li>
-                    <img src="img/puntos-limpios.w1600.jpg"> 
-                    <div class="caption center-align">
-                      <h3>Nuestros puntos</h3>
-                      <h5 class="light grey-text text-lighten-3">Cada vez mas cerca de ti.</h5>
-                    </div>
-                  </li>
-                  <li>
-                    <img src= "img/S1QlMWyqNg_1256x620.jpg"> 
-                    <div class="caption left-align">
-                      <h3>Comprometidos </h3>
-                      <h5 class="light grey-text text-lighten-3">Con el futuro.</h5>
-                    </div>
-                  </li>
-                  <li>
-                    <img src="img/cine.jpg"> 
-                    <div class="caption right-align">
-                      <h3>Diviertete</h3>
-                      <h5 class="light grey-text text-lighten-3">salvando al mundo.</h5>
-                    </div>
-                  </li>
-                </ul>
-        </div>          
+            <ul class="slides">
+              <li>
+                <img src="{% static 'menu/img/003.jpg' %}" > 
+                <div class="caption center-align">
+                  <h3>Nuestros puntos</h3>
+                  <h5 class="light grey-text text-lighten-3">Cada vez mas cerca de ti.</h5>
+                </div>
+              </li>
+              <li>
+                <img src= "{% static 'menu/img/003.jpg' %}" > 
+                <div class="caption left-align">
+                  <h3>Comprometidos </h3>
+                  <h5 class="light grey-text text-lighten-3">Con el futuro.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="{% static 'menu/img/003.jpg' %}" > 
+                <div class="caption right-align">
+                  <h3>Diviertete</h3>
+                  <h5 class="light grey-text text-lighten-3">salvando al mundo.</h5>
+                </div>
+              </li>
+            </ul>
+          </div>
         <div class="col s12">
                   <div class="container center">
                       <h2 class="black-text">Premios de la semana</h2>
                       <hr>
                   </div>
-        </div>           
+            {% for a in proveedorRecompensas %}
             <div class="container ">   
               <div class="row">
                 <div class="col s3 l6">
                     <p>
                         <br>
-                        <strong>2X1 en </strong> 
+                        <!--<strong>{{ b.descripcion }}</strong>-->
                         <br>
-                        <strong>STARBUCKS</strong>
+                        <strong >{{ a.empresa }}</strong>
                     </p>
                 </div>
-                <div class="col s3 l6">
-                    <img  class ="img"src="img/58428cc1a6515b1e0ad75ab1.png" width="100%" height="auto" alt="">
-                </div>
-                  <div class="col s3 m6">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col s3 l6">
-                                <p>
-                                    <br>
-                                        <strong>30% de descuento en CINEHOYTS</strong>
-                                    </p>
-                            </div>
-                            <div class="col s3 l6">
-                                <img class="img" src="img/cine.png" width="100%" height="auto" alt="">
-                            </div>
-                        </div>
-                    </div>     
-                 </div>
-                </div>
+              </div>
             </div>
-            
+            {% endfor %}
+          </div>   
             <div class="col s3">
               <div class="container center">
                   
@@ -70,39 +54,16 @@
                   <hr>
               </div>
             </div>
-            
-            
-            
+            {% for a in noticias %}
             <div class="row featurette">
               <div class="col-md-1"></div>
               <div class="col-md-5 ">
-                <h2 class="featurette-heading">Nueva planta de reciclaje.</h2>
-                <h4><span class="text-muted">3 de septiembre de 2019</span></h4>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <li class="featurette-heading">{{ a.titulo }}</li>
+                <h4><span class="text-muted">{{ a.fecha }}</span></h4>
+                <p class="lead">{{ a.descripcion }}</p>
               </div>
-              <div class="col-md-5 center">
-                  <img class="imgs" src="img/eb54485238654f64afd41e4a0ecc70da595b3b99.jpeg">
-              </div>
-            </div>
-            
-            <div class="row featurette">
-                <div class="col-md-1"></div>
-              <div class="col-md-5 ">
-                <h2 class="featurette-heading">Recyclemore apoya campaña "Playa limipia".</h2>
-                <h4><span class="text-muted">21 de septiembre de 2019</span></h4>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-              </div>
-              <div class="col-md-5 center">
-                  <img class="imgs" src="img/voluntarios-recogiendo-basura-playa_23-2147827000.jpg" >
-                </div>
-            </div>
-            
-            
-            
-            
+            {% endfor %}
             <div class="green darken-2">
-            
-            
             <div class="row container">
             <br>
                     <div class="container center">
@@ -111,9 +72,9 @@
             <br>
             </div>
             </div>
-            {% endblock %}   
+            {% endblock contenido %}   
                <!-- JavaScript -->
                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
                  <!-- Iniciar -->
-              <script src="{% static 'menu/js/iniciar.js'}"></script>
+              <script src="{% static 'menu/js/iniciar,js'}"></script>
             </html>
