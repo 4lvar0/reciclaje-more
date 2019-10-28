@@ -2,30 +2,18 @@
     {% extends 'menu/Header_Footer.html' %}
     {% block contenido %}
     {% load static %}     
-        <div class="slider">
-            <ul class="slides">
-              <li>
-                <img src="{% static 'menu/img/003.jpg' %}" > 
-                <div class="caption center-align">
-                  <h3>Nuestros puntos</h3>
-                  <h5 class="light grey-text text-lighten-3">Cada vez mas cerca de ti.</h5>
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://pbs.twimg.com/media/DaMm-y6UwAA0oB4.jpg" class="d-block w-100" alt="...">
                 </div>
-              </li>
-              <li>
-                <img src= "{% static 'menu/img/003.jpg' %}" > 
-                <div class="caption left-align">
-                  <h3>Comprometidos </h3>
-                  <h5 class="light grey-text text-lighten-3">Con el futuro.</h5>
+                <div class="carousel-item">
+                  <img src="..." class="d-block w-100" alt="...">
                 </div>
-              </li>
-              <li>
-                <img src="{% static 'menu/img/003.jpg' %}" > 
-                <div class="caption right-align">
-                  <h3>Diviertete</h3>
-                  <h5 class="light grey-text text-lighten-3">salvando al mundo.</h5>
+                <div class="carousel-item">
+                  <img src="..." class="d-block w-100" alt="...">
                 </div>
-              </li>
-            </ul>
+              </div>
           </div>
         <div class="col s12">
                   <div class="container center">
@@ -37,9 +25,6 @@
               <div class="row">
                 <div class="col s3 l6">
                     <p>
-                        <br>
-                        <!--<strong>{{ b.descripcion }}</strong>-->
-                        <br>
                         <strong >{{ a.empresa }}</strong>
                     </p>
                 </div>
