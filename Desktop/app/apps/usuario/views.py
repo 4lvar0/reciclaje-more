@@ -9,6 +9,15 @@ from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 
 # Create your views here.
+<<<<<<< HEAD
+=======
+def Ingresar(request):
+    return render(request,'usuario/ingreso/login.html')
+
+def Registrar(request):
+    return render(request, 'usuario/ingreso/registro.html')
+
+>>>>>>> b59e1fac2c6a2edc02ca4ee04333958e19c788f6
 def Login(request):
     user = authenticate(username=request.POST['username'], password=request.POST['password'])
     if user is not None:

@@ -19,6 +19,10 @@ from django.contrib.auth.views import logout_then_login
 
 urlpatterns = [
     path('',include('apps.menu.urls') ,name='home'),
+<<<<<<< HEAD
     path('',include('apps.usuario.urls'),name='accounts'),
+=======
+    path('',include('apps.usuario.urls') ,name='usuario'),
+>>>>>>> b59e1fac2c6a2edc02ca4ee04333958e19c788f6
     path('admin/', admin.site.urls),
 ]
