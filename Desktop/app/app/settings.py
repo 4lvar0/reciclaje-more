@@ -57,7 +57,7 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['./templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,7 +118,7 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = reverse_lazy('home')
 
-LOGOUT_REDIRECT_URL = reverse_lazy('/')
+LOGOUT_REDIRECT_URL = reverse_lazy('home')
 
 
 # Static files (CSS, JavaScript, Images)

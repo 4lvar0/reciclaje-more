@@ -1,3 +1,5 @@
+
+
 body.fondo{
     margin: 0;
     padding: 0;
@@ -97,10 +99,10 @@ left: calc(50% - 50px);
 
 
 .btn[type = "submit"]:hover{
-background-color:white;
-color: rgb(42, 82, 5);
-border-color: rgb(42, 82, 5);
-margin-left: 10px;
+    background-color:white;
+    color: rgb(42, 82, 5);
+    border-color: rgb(42, 82, 5);
+    margin-left: 10px;
 }
 
 .btn-outline-success {
@@ -125,6 +127,10 @@ color: white;
     color: white;
 }
 
+.username{
+    color: white;
+    align-self: center;
+}
 
 .img{
     width: 150px;
@@ -142,3 +148,37 @@ color: white;
     background-color: black;
     color: black;
 }
+
+.carousel-item img {
+    width:1284;
+    height:700px;
+  }
+
+/* Slider */
+.tech-slideshow {
+    height: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: initial;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .tech-slideshow > div {
+    height: 400px;
+    width: 2526px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+  }
+  .tech-slideshow:hover{
+    animation-play-state: paused;
+  }
+  
+  @keyframes moveSlideshow {
+    100% { 
+      transform: translateX(-66.6666%);  
+    }
+  }

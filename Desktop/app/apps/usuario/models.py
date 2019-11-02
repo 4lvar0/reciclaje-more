@@ -1,19 +1,17 @@
 from django.db import models
 
 # Create your models here.
-class Usuario(models.Model):
-    id = models.IntegerField(primary_key=True)
-    nombre = models.CharField(max_length = 30)
-    apellido = models.CharField(max_length = 30)
-
 class Perfil(models.Model):
-    idPerfil = models.ForeignKey(Usuario , null = True ,blank = True , on_delete = models.DO_NOTHING)
+    id = models.AutoField( primary_key=True ,default=3)
+    nombre = models.CharField(max_length = 30, default=0)
+    apellido = models.CharField(max_length = 30,default=0)
     correoElectronico = models.EmailField(unique =True)
     username = models.CharField(unique = True, max_length = 12)
     password = models.CharField(max_length = 10)
+    staff = models.BooleanField(null= False, blank= False, default=False)
 
 class Estadistica(models.Model):
-    idUsuario = models.ForeignKey(Usuario, null = True, blank = True ,on_delete =models.DO_NOTHING)
+    idUsuario = models.ForeignKey(Perfil, null = True, blank = True ,on_delete =models.DO_NOTHING)
     puntaje = models.IntegerField()
     progreso = models.FloatField(default=0)
     

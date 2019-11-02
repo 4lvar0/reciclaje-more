@@ -10,9 +10,9 @@
     <title>Registrarse</title>
 </head>
 <body class="fondo">
-    <form class="caja" id="formulario" action="registrar" method="POST">
+    <div class="caja">
+    <form id="formulario" action="{% url 'register' %}" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
         <img src="{% static 'usuario/img/reciclar_icon.jpg' %}" class="logo" alt="logo">
         <h1>Ingrese sus datos</h1>
         <input type="text" name="username" class="form-control" placeholder="Nombre de Usuario">
@@ -20,8 +20,21 @@
         <input type="text" name="lastName" class="form-control" placeholder="Apellido">
         <input type="email" name="email" class="form-control" placeholder="e-mail">
         <input type="password" name="password" class="form-control" placeholder="Contraseña (6 o mas caracteres)">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <input type="submit"value="Registrarse">
     </form>
+    <form action="Ingresar" method="POST">
+        <div class="link">
+            <a href="/Ingresar">Tengo cuenta</a>
+        </div>
+    </form>
+    </div>
     <script src="{% static 'usuario/js/jquery-3.4.1.js' %}"></script>
     <script src="{% static 'usuario/js/jquery.validate.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
