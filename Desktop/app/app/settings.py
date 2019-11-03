@@ -72,6 +72,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
+AUTH_USER_MODEL = 'usuario.Perfil'
+
+#Email Verification
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -106,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-cl'
 
 TIME_ZONE = 'UTC'
 

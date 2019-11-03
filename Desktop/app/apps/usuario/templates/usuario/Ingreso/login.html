@@ -11,7 +11,6 @@
 <body class="fondo" background="{% static 'usuario/img/Fondo.jpg' %}">
     <div class="caja" id="formulario">
         <img src="{% static 'usuario/img/reciclar_icon.jpg' %}" class="logo" alt="logo">
-<<<<<<< HEAD:Desktop/app/apps/usuario/templates/usuario/login.html
         {% if user.is_authenticated %}
         <h1>Tiene una sesion activa</h1>
         {% else %}
@@ -21,6 +20,13 @@
             <div class="form-group">
                 <input class="form-control" type="text" name="username" placeholder="Usuario">
                 <input class="form-control" type="password" name="password" placeholder="Contraseña">
+                {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                    </ul>
+                {% endif %}
                 <input class="form-control" type="submit"value="Ingresar">
             </div>
             <div class="link">
@@ -28,13 +34,6 @@
                     <a  href="https://www.placecage.com/gif/1000/600">¿Olvidaste tu contraseña? </a><br>
                     <a href="{% url 'registro' %}">No tengo cuenta</a>
             </div>
-=======
-        <h1>Bienvenido</h1>
-        <form action="Login" method="POST">
-                <input type="text" name="username" placeholder="Usuario">
-                <input type="password" name="password" placeholder="Contraseña">
-                <input type="submit"value="Ingresar">
->>>>>>> b59e1fac2c6a2edc02ca4ee04333958e19c788f6:Desktop/app/apps/usuario/templates/usuario/Ingreso/login.html
         </form>
         {% endif %}
     </div>
