@@ -36,7 +36,7 @@
           </ul>
               {% if user.is_authenticated %}
               <div>
-                <p class="username">{{ user.username }}</p>
+                <a href="{% url 'usuario' %}">{{ user.username }}</a>
               </div>
               <form class="ingresar form-inline my-2 my-lg-0" action="{% url 'Salir' %}" method="GET">
                 <button class="  btn btn-outline-success my-2 my-sm-0" type="submit">Salir</button>

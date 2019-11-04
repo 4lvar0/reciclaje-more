@@ -1,4 +1,6 @@
 {% extends 'menu/Header_Footer.html' %}
+{% block sidebar %}
+<body>
 <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <br>
@@ -46,3 +48,8 @@
                 </div>
         </div>
     </div>
+  </main>
+    {% endblock sidebar %}
+    {% block contenido %}
+    {% endblock contenido %}
+</body>

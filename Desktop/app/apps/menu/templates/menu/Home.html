@@ -35,7 +35,7 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
+      </div>
       <div class="container">
         <div class="row">
           <div class="col s12 m12">
@@ -43,14 +43,24 @@
             <br>
           </div>
         </div>
+      </div>
       <!--Premios carrusel-->
-      <div class="row">
-        <div class="tech-slideshow">
-          <div class="recompensas">
-
+      <div class="Infinite-carrousel">
+          <div class="slide-track">
+              <div class="premios">
+                  {% for b in empresa %}
+            {% for a in recompensa %}
+              <div>
+                <p>{{ a.descripcion }} en {{ b.nombre }}</p>
+                <small>{{ a.expiracion }}</small>
+              </div>
+              <div>
+                  <img class="img" src="{{ b.Logo }}" alt="" />
+              </div>
+            {% endfor %}
+            {% endfor %}
           </div>
         </div>
-      </div>
       </div>  
       <div class="container">
         <div class="row">
@@ -68,7 +78,7 @@
             <p class="lead">{{ noticias.descripcion}}</p>
           </div>
           <div class="col-md-6">
-            <img src="{{ noticias.imagen }}" alt="">
+            <img src="{{ noticias.Imagen }}" alt="">
           </div>
           {% endfor %}
         </div>
@@ -87,4 +97,4 @@
             <script src="{% static 'menu/js/slider.js' %}"></script>
                  <!-- Iniciar -->
             </html>
-          </body>
+    </body>
