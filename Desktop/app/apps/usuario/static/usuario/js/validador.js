@@ -1,27 +1,25 @@
 $(document).ready(
-    function(){
-    $("#formulario").validate(
+    function(){$("#formulario").validate(
     {
-
         rules:{
-            usuario:{
+            username:{
                 required:true    
             },
-            nombre:{
+            name:{
                 required:true
             },
-            apellido:{
+            lastname:{
                 required:true
             },
-            mail:{
+            password:{
                 required:true
             },
-            contraseña:{
+            password2:{
                 required:true
             }
         },
         messages:{
-            usuario:{
+            username:{
                 required:"Debe ingresar su usuario"    
             },
             nombre:{
@@ -37,6 +35,5 @@ $(document).ready(
                 required:"Debe ingresar su contraseña."
             }
         }
-    }
-    )
+    })
 })

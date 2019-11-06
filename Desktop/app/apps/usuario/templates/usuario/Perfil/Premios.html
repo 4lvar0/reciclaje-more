@@ -1,4 +1,8 @@
-
+{% extends 'usuario/menu/Header_Footer.html' %}
+{% block Main %}
+{% if user.is_authenticated %}
+{% include 'usuario/Perfil/SideBar.html' %}
+{% endif %}
 <body>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Descuentos de la semana</h1>
@@ -6,178 +10,25 @@
    </div>
   </div>
 </div>
+<!--Premios favoritos-->
 <div class="container ">
     <div class="row">
-      <div class="col s3 l6">
+
+        {% for b,a in premios %}
+        <div class="col s3 l6">
         <p><br>
-                              <strong>2X1 en </strong> <br>
-                              <strong>STARBUCKS</strong>
-                          </p>
-                          <strong class="puntos">1.000 PX </strong>
-                      </div>
-                      <div class="col s3 l6">
-                          <img  class ="img"src="img/58428cc1a6515b1e0ad75ab1.png" width="100%" height="auto" alt="">
+            <strong>{{ a.descripcion }} en </strong> <br>
+            <strong>{{ b.nombre }}</strong>
+        </p>
+            <strong class="puntos">{{ a.costo }} PX </strong>
         </div>
         <div class="col s3 l6">
-          <div class="container">
-              <div class="row">
-                  <div class="col s3 l6">
-                      <p>
-                          <br>
-                              <strong>30% de descuento en CINEHOYTS.</strong>
-                          </p>
-                          <strong class="puntos">2.500 PX </strong>
-                  </div>
-                  <div class="col s3 l6">
-                      <img class="img" src="img/cine.png" width="100%" height="auto" alt="">
-                  </div>
-                 </div></div></div></div></div>
-                 <div class="container ">
-                    <div class="row">
-                      <div class="col s3 l6">
-                        <p><br>
-                                              <strong>2X1 en </strong> <br>
-                                              <strong>PIZZA HUT.</strong>
-                                          </p>
-                                          <strong class="puntos">800 PX </strong>
-                                      </div>
-                                      <div class="col s3 l6">
-                                          <img  class ="img" src="img/pizza-hut-logo1.jpg" width="100%" height="auto" alt="">
-                        </div>
-                        <div class="col s3 l6">
-                          <div class="container">
-                              <div class="row">
-                                  <div class="col s3 l6">
-                                      <p>
-                                          <br>
-                                              <strong>70% de decuento en la segunda unidad.</strong>
-                                          </p>
-                                          <strong class="puntos">6.000 PX </strong>
-                                  </div>
-                                  <div class="col s3 l6">
-                                      <img class="img" src="img/logo_converse_despues.jpg" width="100%" height="auto" alt="">
-                                  </div>
-                                 </div></div></div></div></div>
-                                 <div class="col s12">
-                                    <div class="container center">
-                                        
-                                        <h2 class="black-text">Descuentos</h2>
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="container ">
-                                    <div class="row">
-                                      <div class="col s3 l6">
-                                        <p><br>
-                                                              <strong>2X1 en </strong> <br>
-                                                              <strong>STARBUCKS</strong>
-                                                          </p>
-                                                          <strong class="puntos">1.000 PX </strong>
-                                                      </div>
-                                                      <div class="col s3 l6">
-                                                          <img  class ="img"src="img/58428cc1a6515b1e0ad75ab1.png" width="100%" height="auto" alt="">
-                                        </div>
-                                        <div class="col s3 l6">
-                                          <div class="container">
-                                              <div class="row">
-                                                  <div class="col s3 l6">
-                                                      <p>
-                                                          <br>
-                                                              <strong>30% de descuento en CINEHOYTS.</strong>
-                                                          </p>
-                                                          <strong class="puntos">2.500 PX </strong>
-                                                  </div>
-                                                  <div class="col s3 l6">
-                                                      <img class="img" src="img/cine.png" width="100%" height="auto" alt="">
-                                                  </div>
-                                                 </div></div></div></div></div>
-                                                 <div class="container ">
-                                                    <div class="row">
-                                                      <div class="col s3 l6">
-                                                        <p><br>
-                                                                              <strong>80% de descuento en </strong> <br>
-                                                                              <strong>VANS</strong>
-                                                                          </p>
-                                                                          <strong class="puntos">6.000 PX </strong>
-                                                                      </div>
-                                                                      <div class="col s3 l6">
-                                                                          <img  class ="img" src="img/vans.jpg" width="100%" height="auto" alt="">
-                                                        </div>
-                                                        <div class="col s3 l6">
-                                                          <div class="container">
-                                                              <div class="row">
-                                                                  <div class="col s3 l6">
-                                                                      <p>
-                                                                          <br>
-                                                                              <strong>60% de descuento en BEATS.</strong>
-                                                                          </p>
-                                                                          <strong class="puntos">30.000 PX </strong>
-                                                                  </div>
-                                                                  <div class="col s3 l6">
-                                                                      <img class="img" src="img/beat.png" width="100%" height="auto" alt="">
-                                                                  </div>
-                                                                 </div></div></div></div></div>
-                                                                 <div class="container ">
-                                                                    <div class="row">
-                                                                      <div class="col s3 l6">
-                                                                        <p><br>
-                                                                                              <strong>25% de descuento en </strong> <br>
-                                                                                              <strong>BURGER KING.</strong>
-                                                                                          </p>
-                                                                                          <strong class="puntos">1.500 PX </strong>
-                                                                                      </div>
-                                                                                      <div class="col s3 l6">
-                                                                                          <img  class ="img" src="img/mc.png" width="100%" height="auto" alt="">
-                                                                        </div>
-                                                                        <div class="col s3 l6">
-                                                                          <div class="container">
-                                                                              <div class="row">
-                                                                                  <div class="col s3 l6">
-                                                                                      <p>
-                                                                                          <br>
-                                                                                              <strong>70% de decuento en CONVERSE.</strong>
-                                                                                          </p>
-                                                                                          <strong class="puntos">6.000 PX </strong>
-                                                                                  </div>
-                                                                                  <div class="col s3 l6">
-                                                                                      <img class="img" src="img/logo_converse_despues.jpg" width="100%" height="auto" alt="">
-                                                                                  </div>
-                                                                                 </div></div></div></div></div>
-                                                 <div class="container ">
-                                                    <div class="row">
-                                                      <div class="col s3 l6">
-                                                        <p><br>
-                                                                              <strong>2X1 en </strong> <br>
-                                                                              <strong>PIZZA HUT.</strong>
-                                                                          </p>
-                                                                          <strong class="puntos">800 PX </strong>
-                                                                      </div>
-                                                                      <div class="col s3 l6">
-                                                                          <img  class ="img" src="img/pizza-hut-logo1.jpg" width="100%" height="auto" alt="">
-                                                        </div>
-                                                        <div class="col s3 l6">
-                                                          <div class="container">
-                                                              <div class="row">
-                                                                  <div class="col s3 l6">
-                                                                      <p>
-                                                                          <br>
-                                                                              <strong>90% de decuento en cuenta BRAZZERS.</strong>
-                                                                          </p>
-                                                                          <strong class="puntos">10.000 PX </strong>
-                                                                  </div>
-                                                                  <div class="col s3 l6">
-                                                                      <img class="img" src="img/Brazzers.png" width="100%" height="auto" alt="">
-                                                                  </div>
-                                                                 </div></div></div></div></div>
-
-
-                    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1056" height="444" style="display: block; width: 528px; height: 222px;"></canvas>
-
-                    <footer class="container">
-                        <p class="float-right"><a href="Premios_usuario.html">Volver</a></p>
-                        <p>© 2017-2019 RECYCLEMORE, Inc. · <a href="Premios_usuario.html">Privacidad</a> · <a href="Premios_usuario.html">Terminos
-                        </a></p>
-                      </footer>
+            <img  class ="img"src="{{ b.Logo }}" width="100%" height="auto" alt="">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1056" height="444" style="display: block; width: 528px; height: 222px;"></canvas>
                     
                     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
                     <!-- Popper.JS -->
@@ -185,5 +36,5 @@
                     <!-- Bootstrap JS -->
                     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
                 
-                </body>
-</html>
+</body>
+{% endblock %}

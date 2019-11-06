@@ -1,24 +1,26 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-cl">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% load static %}
     <link rel="stylesheet" href="{% static 'usuario/css/style.css' %}">
     <title>Registrarse</title>
 </head>
 <body class="fondo">
-    <div class="caja">
-    <form id="formulario" action="{% url 'register' %}" method="POST">
+    <div id="formulario" class="caja">
+            <img src="{% static 'usuario/img/Forms/reciclar_icon.jpg' %}" class="logo" alt="logo">
+    {% if user.is_authenticated %}
+    <h1>Tiene una sesion activa</h1>
+    {% else %}
+    <form method="POST">
         {% csrf_token %}
-        <img src="{% static 'usuario/img/reciclar_icon.jpg' %}" class="logo" alt="logo">
         <h1>Ingrese sus datos</h1>
+        <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+        <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+        <input type="email" name="correoElectronico" class="form-control" placeholder="e-mail">
         <input type="text" name="username" class="form-control" placeholder="Nombre de Usuario">
-        <input type="text" name="name" class="form-control" placeholder="Nombre">
-        <input type="text" name="lastName" class="form-control" placeholder="Apellido">
-        <input type="email" name="email" class="form-control" placeholder="e-mail">
         <input type="password" name="password" class="form-control" placeholder="Contraseña (6 o mas caracteres)">
         {% if messages %}
         <ul class="messages">
@@ -34,11 +36,7 @@
             <a href="/Ingresar">Tengo cuenta</a>
         </div>
     </form>
+    {% endif %}
     </div>
-    <script src="{% static 'usuario/js/jquery-3.4.1.js' %}"></script>
-    <script src="{% static 'usuario/js/jquery.validate.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="{% static 'usuario/js/bootstrap.js' %}"></script>
-    <script src="{% static 'usuario/js/validador.js' %}"></script>
 </body>
 </html>

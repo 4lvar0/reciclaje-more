@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'usuario/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'usuario/css/style.css' %}">
+    <title>RECYCLEMORE</title>
+</head>
+<header>
+  {% load static %}
+  <nav class="navbar navbar-expand-lg navbar-light nav-color fixed-top">
+      <a class="navbar-brand" href="{% url 'home' %}"><img class="institucion" src="{% static 'usuario/img/Home/Logo.jpg' %}"> </a>
+      <div class="titulo">Recyclemore</div>
+      <div class="espacio">dst</div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Quienes somos??<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Contenedores</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'premios' %}">Recompensas</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'noticias' %}">Noticias</a>
+                </li>
+          </ul>
+              {% if user.is_authenticated %}
+              <div>
+                <a class="titulo" href="{% url 'usuario' %}">{{ user.username }}</a>
+              </div>
+              <form class="ingresar form-inline my-2 my-lg-0" action="{% url 'Salir' %}" method="GET">
+                <button class="  btn btn-outline-success my-2 my-sm-0" type="submit">Salir</button>
+              </form>
+              {% else %}
+              <form class="ingresar form-inline my-2 my-lg-0" action="{% url 'login' %}" method="GET">
+                <button class="  btn btn-outline-success my-2 my-sm-0" type="submit">Ingresar</button>
+              </form>
+              
+              <form class="ingresar form-inline my-2 my-lg-0" action="{% url 'registro' %}" method="GET">
+                <button class="  btn btn-outline-success my-2 my-sm-0" type="submit">Registrarse</button>
+              </form>
+              </div>  
+              {% endif %}     
+  </nav>
+  <br>
+  <br>
+  <br>
+</header>
+<body>    
+{% block Main %}
+{% endblock %}
+</body>
+<footer class="container">
+    <p class="float-right"><a href="#">Volver</a></p>
+    <p>© 2017-2019 RECYCLEMORE, Inc. · <a href="#">Privacidad</a> · <a href="#">Terminos
+    </a></p>
+  </footer>
+<script src="{% static 'usuario/js/jquery-3.4.1.js' %}"></script>

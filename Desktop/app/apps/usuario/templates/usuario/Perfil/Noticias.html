@@ -1,0 +1,30 @@
+{% extends 'usuario/menu/Header_Footer.html' %}
+{% block Main %}
+{% if user.is_authenticated %}
+{% include 'usuario/Perfil/SideBar.html' %}
+{% endif %}
+<body>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+    </div>
+    <div class="col s3">
+    <div class="container center">
+        <h2 class="black-text">Noticias</h2>
+        <hr>
+    </div>
+    </div>
+
+    <div class="row featurette noticia">
+        {% for noticias in noticia %}
+        <div class="col-md-5 ">
+            <h2 class="featurette-heading">{{ noticias.titulo }}</h2>
+            <h4><span class="text-muted">{{ noticias.fecha }}</span></h4>
+            <p class="lead">{{ noticias.descripcion }}</p>
+        </div>
+        <div class="col-md-5 center">
+            <img class="imgs" src="{{ noticias.Imagen }}">
+        </div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}

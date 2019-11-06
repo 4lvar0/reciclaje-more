@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="{% static 'usuario/css/style.css' %}">
     <title>Login</title>
 </head>
-<body class="fondo" background="{% static 'usuario/img/Fondo.jpg' %}">
-    <div class="caja" id="formulario">
-        <img src="{% static 'usuario/img/reciclar_icon.jpg' %}" class="logo" alt="logo">
+<body class="fondo">
+    <div class="caja">
+        <img src="{% static 'usuario/img/Forms/reciclar_icon.jpg' %}" class="logo" alt="logo">
         {% if user.is_authenticated %}
         <h1>Tiene una sesion activa</h1>
         {% else %}
-        <form action="{% url 'login' %}" method="POST">
+        <form id="formulario" action="{% url 'login' %}" method="POST">
             {% csrf_token %}
             <h1>Bienvenido</h1>
             <div class="form-group">
@@ -37,10 +37,6 @@
         </form>
         {% endif %}
     </div>
-    <script src="{% static 'usuario/js/jquery-3.4.1.js' %'}"></script>
-    <script src="{% static 'usuario/js/jquery.validate.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="{% static 'usuario/js/bootstrap.js' %}"></script>
     <script src="{% static 'usuario/js/validador.js' %}"></script>
 </body>
 </html>

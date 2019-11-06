@@ -1,7 +1,8 @@
+
 body.fondo{
     margin: 0;
     padding: 0;
-    background-image: url(../img/Fondo.jpg);
+    background-image: url(../img/Forms/Fondo.jpg);
 }
 
 .caja{
@@ -19,13 +20,14 @@ body.fondo{
 position: relative;
 left: 60px;
 }
-.caja input[type = "text"],.caja input[type = "email"],.caja input[type = "password"]{
-    border:0;
+
+.caja .form-control{
+    border: 0;
     background: none;
     display: block;
-    margin:20px auto;
+    margin: 20px auto;
     text-align: center;
-    border: 2px solid #b1dca3;  
+    border: 2px solid #b1dca3;
     padding: 14px 10px;
     width: 200px;
     outline: none;
@@ -55,7 +57,7 @@ left: 60px;
 background-color: #3498db;
 }
 
-.caja input[type = "text"]:focus,.caja input[type = "password"]:focus,.caja input[type ="email"]:focus{
+.caja .form-control:focus{
     width: 250px;
     border-color: #3498db;
 }
@@ -79,6 +81,7 @@ border-radius: 50%;
 position: relative;
 left: calc(50% - 50px);
 }
+
 .nav-color{
     background-color:rgb(76, 139, 16);
     
@@ -94,11 +97,13 @@ left: calc(50% - 50px);
     margin-left: 10px;
 
 }
+
+
 .btn[type = "submit"]:hover{
-background-color:white;
-color: rgb(42, 82, 5);
-border-color: rgb(42, 82, 5);
-margin-left: 10px;
+    background-color:white;
+    color: rgb(42, 82, 5);
+    border-color: rgb(42, 82, 5);
+    margin-left: 10px;
 }
 
 .btn-outline-success {
@@ -122,3 +127,89 @@ color: white;
 .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
     color: white;
 }
+
+.username{
+    color: white;
+    align-self: center;
+}
+
+.img{
+    width: 150px;
+    height: 150px;
+}
+
+.imgs{
+    width: 400px;
+    height: 300px;
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: black;
+}
+
+
+.carousel-item img {
+    width:1284;
+    height:700px;
+}
+
+/* Slider */
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+.Infinite {
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 300px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 1000px;
+}
+	
+.track {
+		animation: scroll 40s linear infinite;
+		display: flex;
+		width: calc(250px * 14);
+}
+	
+.premios {
+        padding-left: 50px;
+        float: right;
+        width: 200px;
+
+}
+.premios > img {
+    height: 175px;
+    width: auto;
+}
+
+.sidebar-sticky{
+    padding: 10px;
+    background: rgb(95, 175, 20);
+    color:rgb(70, 121, 24) ;
+    transition: all 0.3s;
+    width: 200px;
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+}
+.puntos{
+    color: green;
+}
+.titulo{
+    color: white
+}
+.titulo:hover{
+    color: white;
+    text-decoration-line: none;
+}
+.noticia > div{
+   padding-top: 50px;
+}
+
