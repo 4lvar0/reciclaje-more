@@ -1,0 +1,27 @@
+{% extends 'usuario/menu/Header_Footer.html' %}
+{% block Main %}
+{% if user.is_authenticated %}
+{% include 'usuario/Perfil/SideBar.html' %}
+{% endif %}
+<body>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Editar Informacion Basica</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+    </div>
+    <div class="col s3">
+        <form  class ="Configuracion"id="formulario" action="index.html" method="GET">
+        <input type="text" name="usua" class="form-control" placeholder="Usuario">
+        <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+        <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+        <input type="text" name="mail" class="form-control" placeholder="Correo Electronico">
+        </form>
+    </div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Ajustes avanzados</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+        </div>
+    </div>                              
+</body>
+{% endblock %}

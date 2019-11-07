@@ -1,22 +1,22 @@
-{% extends 'usuario/Perfil/SideBar.html' %}
-{% block contenido2 %}
-    <img src="img/WhatsApp Image 2019-10-15 at 14.32.42.jpeg" alt="logo" class="logo">
+{% extends 'usuario/menu/Header_Footer.html' %}
+{% block Main %}
+{% include 'usuario/Perfil/SideBar.html' %}
+    <img src="https://i.redd.it/6k7u2q0nxnd31.png" alt="logo" class="logo">
     <h1></h1>
-    <h1 class="center" >Alvaro.T</h1>
-    <H3 class="center"> Puntaje: <strong class="puntos center">453 PX </strong></H3>
-    <H3 class="center"> Materia reciclada: <strong class="puntos center">56 KG </strong></H3>
-    <H3 class="center"> Distancia Recorrido: <strong class="puntos center">28,2 KM </strong></H3>
+    <h1 class="center" >{{ user.username }}</h1>
+    <H3 class="center"> Puntos: <strong class="puntos center">{{ estadistica.puntaje }} PX</strong></H3>
+    <H3 class="center"> Cantidad reciclada: <strong class="puntos center">{{ cantidad.cantidadReciclada }} KG </strong></H3>
     <div class="btn-toolbar mb-2 mb-md-0">
     </div>
-   </div>
-  </div>
-  <br>
-  <div class="col s3">
-  <div class="container center">
-     <h2 class="black-text">Mis favoritos</h2>
-     <hr>
-  </div>
-  </div>
+
+
+    <body>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Mis Favoritos</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+           </div>
+          </div>
+        </div>
   <div class="container ">
     <div class="row">
       <div class="col s3 l6">
@@ -47,4 +47,4 @@
        </div>
       </div>
     </div>
-{% endblock contenido2 %}
+{% endblock Main %}

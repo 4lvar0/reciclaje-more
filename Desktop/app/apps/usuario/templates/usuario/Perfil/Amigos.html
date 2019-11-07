@@ -1,0 +1,40 @@
+{% extends 'usuario/menu/Header_Footer.html' %}
+{% block Main %}
+{% include 'usuario/Perfil/SideBar.html' %}
+<body>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Amigos</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+       </div>
+      </div>
+    </div>
+    <form>
+        <div>
+        <input class="form-control form-control-dark w-100  center" type="search" placeholder="Buscar Amigos" aria-label="Search">
+        </div>
+      </form>
+    <!--Amigos-->
+    <div class="container ">
+        <div class="row">
+            {% for a in amigos %}
+            <div class="col s3 l6">
+            <p><br>
+                <strong>{{ a.username }} en </strong> <br>
+                <a href="">Añadir amigo</a>
+            </p>
+            <div class="col s3 l6">
+                <img  class ="img"src="{{ b.Logo }}" width="100%" height="auto" alt="">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1056" height="444" style="display: block; width: 528px; height: 222px;"></canvas>
+                        
+                        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                        <!-- Popper.JS -->
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+                        <!-- Bootstrap JS -->
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+                    
+    </body>
+    {% endblock %}

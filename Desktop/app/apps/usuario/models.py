@@ -27,6 +27,9 @@ class Perfil(AbstractBaseUser,PermissionsMixin):
     def has_module_perms(self, app_label):
         return self.is_superuser
     #metodos
+    def id(self):
+        return self.pk
+
     def authenticate(request,username=None,password=None):
         try:
             user= authenticate(username = username,password=password)
@@ -37,20 +40,42 @@ class Perfil(AbstractBaseUser,PermissionsMixin):
         except Perfil.DoesNotExist:
                 return None
 
-class Material(models.Model):
-    id = models.IntegerField(primary_key=True)
-    nombre = models.CharField(max_length=100)
+class Friend(models.Model):
+    users = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    current_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="owner", null=True,on_delete=models.CASCADE)
 
-class Reciclaje(models.Model):
-    id = models.IntegerField(primary_key=True, blank=False, null=False, default=0)
-    tipoMaterial = models.ForeignKey(Material, null= False,on_delete=models.DO_NOTHING)
-    cantidadReciclada = models.FloatField(null=False, blank=False, default=0)
+    def search_friend(self,username):
+        user = self.objects.select_related('users').get(username=username)
+        return user
+
+    def make_friend(cls, current_user, new_friend):
+        friend, created = cls.objects.get_or_create(
+            current_user = current_user
+        )
+        friend.users.add(new_friend)
+
+    def remove_friend(cls, current_user, new_friend):
+        friend, created = cls.objects.get_or_create(
+            current_user = current_user
+        )
+        friend.users.remove(new_friend)
 
 class Estadistica(models.Model):
     idUsuario = models.ForeignKey(settings.AUTH_USER_MODEL, null = True, blank = True ,on_delete =models.DO_NOTHING)
     puntaje = models.IntegerField(null=False,default=0)
-    distanciaRecorrida= models.FloatField(default=0)
-    objectoReciclado= models.ForeignKey(Reciclaje, on_delete=models.DO_NOTHING,null = True)
+    def get_cantidad(id):
+        cantidad = Reciclaje.objects.select_related('idUsuario').get(idUsuario=id)
+        return cantidad
+
+class Material(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(unique=True,max_length=100)
+
+class Reciclaje(models.Model):
+    id = models.AutoField(primary_key=True)
+    idUsuario = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.DO_NOTHING)
+    tipoMaterial = models.ForeignKey(Material, null= False,on_delete=models.DO_NOTHING)
+    cantidadReciclada = models.FloatField(null=False, blank=False, default=0)
 
 class proveedorRecompensa(models.Model):
     id = models.AutoField(primary_key = True,null = False)
@@ -71,13 +96,15 @@ class recompensa(models.Model):
     activo = models.BooleanField(null= False, blank= False, default=False)
     costo = models.IntegerField(null=False,default=0)
 
-    def get_recompensas(id):
-        try:
-            empresa = proveedorRecompensa.get_empresa(id)
-            recompensas = recompensa.objects.filter(idproveedor=id).filter(activo=True)
-            return recompensas, empresa
-        except recompensa.DoesNotExist:
-            return None
+class recompensaFavoritos(models.Model):
+    idUsuario = models.ForeignKey(Perfil,on_delete=models.CASCADE)
+    idRecompensa = models.ManyToManyField(recompensa)
+    def add_favorito(self, current_user, recompensa):
+        favorito, created = self.objects.get_or_create(
+            current_user = current_user
+        )
+        favorito.idRecompensa.add(recompensa)
+
 
 class noticias(models.Model):
     codigoNoticia = models.AutoField(primary_key= True)

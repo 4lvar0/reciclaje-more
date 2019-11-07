@@ -19,19 +19,14 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_active', True)
-        extra_fields.setdefault('has_module_perms',True)
-
         if extra_fields.get('is_staff') is not True:
             raise ValueError(_('Superuser must have is_staff=True.'))
         if extra_fields.get('is_superuser') is not True:
             raise ValueError(_('Superuser must have is_superuser=True.'))
-        return self.create_user(None,None,username,'superuser2@admin.cl', password, **extra_fields)
+        return self.create_user('Sebastian','Mora',username,'superuser@admin.cl', password, **extra_fields)
 
-    # def get_user(self,username=None,email=None ):
-    #     try:
-    #         if Perfil.objects.get(username = username):
-    #             return ValidationError( _('nombre de usuario no disponible'),params={'username': username})
-    #         elif Perfil.objects.get(correoElectronico = email):
-    #             return ValidationError( _('correo electronico no disponible'),params={'correoElectronico': email})
-    #     except Perfil.DoesNotExist:
-    #         return None
+    def is_authenticated(self):
+        return True
+
+    def get_username(self):
+        return getattr(self, self.USERNAME_FIELD)
